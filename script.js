@@ -1,7 +1,6 @@
 const a = '<button class="delete">Delete</button><button class="edit">Edit</button>';
 const b = '<button class="confirm">Confirm</button>'
 let taskNr = 0;
-edtojDet = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
     //by defaultm submit button is disabled
@@ -55,10 +54,8 @@ document.addEventListener('click', event => {
                 element.parentElement.remove();
             });
         } else  if (element.className === 'edit'  ){ 
-                //const element = event.target;
                 element.parentElement.contentEditable = true;
-               // element.parentElement.innerHTML = element.parentElement.innerHTML + a;
-                element.parentElement.style = 'background-color: rgb(126, 169, 238);';              
+                element.parentElement.style = 'background-color: #68a1b0;';              
         } else if (element.className === 'confirm') {
                 element.parentElement.contentEditable = false;
                 element.parentElement.style = ' ';
