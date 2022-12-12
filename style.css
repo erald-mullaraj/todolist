@@ -1,0 +1,127 @@
+@keyframes delete  {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    65% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1px 1px 1px;
+    margin: 1px 1px 1px;
+    min-height: 1000px;
+    background: linear-gradient(90deg, #e1f4ef,  #ffffff 20%, #ffffff 80%, #e1f4ef);
+}
+
+.header{
+    color: #fff;
+    margin: 2rem 3rem;
+    padding: 1px;
+    background: radial-gradient(circle, #2d454c 0%, #395a63 90%, #46737f 100%);
+    border-radius: 10px;
+    border: solid 4px;
+    border-color: #26424a;
+    
+}
+
+#task{
+    font-size: 22px;
+    width: 50%;
+    margin: 0 0 2rem;
+    padding: 1px;
+}
+
+#submit{
+    width: 7rem;
+    color: #203339;
+}
+
+.post{                 
+    background-color: #46737f;
+    padding: 2px 2px 2px;
+    margin: 1px 1px 1px;
+    animation-name: delete;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;  
+    border-radius: 6px;
+ }
+
+ #posts{
+    align-self: center;
+    text-align: left;
+    margin: 0 5rem;
+}
+      
+p {
+    font-size: 25px;
+    
+    color: white;                 
+}
+p:hover{
+    background-color:#2d454c;
+}
+
+.delete  {
+    float: right;
+}
+
+.edit{
+    float: right;
+    margin-right: 5px;
+    background-color: #6db97f;
+}
+
+.edit:hover{
+    background-color: #619e6a;
+}
+
+.confirm{
+    float: right;
+    margin-right: 5px;
+    background-color: #a3d276;
+}
+
+.confirm:hover{
+    background-color: #87a26d;
+}
+
+button {
+    margin:0 auto;
+    display:block;
+    background-color: #73A9AD;
+    border: white;
+    border-radius: 6px;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: auto;
+}
+
+button:hover{
+    background-color:#44777b;
+    color: white;
+}
+    
