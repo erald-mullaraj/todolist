@@ -28,18 +28,17 @@ body {
     padding: 1px 1px 1px;
     margin: 1px 1px 1px;
     min-height: 1000px;
-    background: linear-gradient(90deg, #e1f4ef,  #ffffff 20%, #ffffff 80%, #e1f4ef);
+    background: linear-gradient(90deg, #acb5b7,  #ffffff 20%, #ffffff 80%, #acb5b7);
 }
 
 .header{
     color: #fff;
     margin: 2rem 3rem;
     padding: 1px;
-    background: radial-gradient(circle, #2d454c 0%, #395a63 90%, #46737f 100%);
+    background: linear-gradient( #2d454c 0%, #395a63 85%, #46737f 100%);
     border-radius: 10px;
     border: solid 4px;
     border-color: #26424a;
-    
 }
 
 #task{
@@ -54,8 +53,15 @@ body {
     color: #203339;
 }
 
+#btnDownload{
+    font-size: 22px;
+    width: 5rem;
+    margin-left: 20px;
+    padding: 1px;
+}
+
 .post{                 
-    background-color: #46737f;
+    background-color: #2d454c;
     padding: 2px 2px 2px;
     margin: 1px 1px 1px;
     animation-name: delete;
@@ -75,8 +81,8 @@ p {
     font-size: 25px;
     color: white;                 
 }
-p:hover{
-    background-color:#2d454c;
+p:hover{   
+    background-color: #46737f;
 }
 
 .delete  {
