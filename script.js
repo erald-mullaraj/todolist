@@ -1,5 +1,3 @@
-const a = '<button class="delete">Delete</button><button class="edit">Edit</button>';
-const b = '<button class="confirm">Confirm</button>'
 let taskNr = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -29,14 +27,30 @@ function editTask (){
         return false;                   
         }                       
     }      
+
+const formatedDate = function () {
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const hour = `${now.getHours()}`.padStart(2, 0);
+    const min = `${now.getMinutes()}`.padStart(2, 0);
+    return `${day}/${month}/${year} - ${hour}:${min}`;
+};
+
      
 function postTask (){
     document.querySelector('form').onsubmit = () => {
         taskNr++;
         const taskValue = document.querySelector('#task').value;
-        const post = document.createElement('p');
+        const post = document.createElement('div');
         post.className = `post post-${taskNr}`;
-        post.innerHTML = taskNr +'.  ' + taskValue +  a + b;     
+        post.innerHTML = 
+        `<div class="taskInput">${taskNr}. ${taskValue}</div>
+        <div class="date">${formatedDate()}</div>
+        <button class="edit">Edit</button>
+        <button class="confirm">Confirm</button>
+        <button class="delete">Delete</button> `;     
         document.querySelector('#posts').append(post);                       
         document.querySelector('#task').value = '';
         document.querySelector('#submit').disabled = true;                       
