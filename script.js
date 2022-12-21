@@ -1,7 +1,10 @@
-let taskNr = 0;
+"user strict";
 
+let taskNr = 0;
+ 
 document.addEventListener('DOMContentLoaded', function() {
     //by defaultm submit button is disabled
+
     document.querySelector('#submit').disabled = true;
     document.querySelector('#task').onkeyup = () => {
         if (document.querySelector('#task').value.length > 0) {
@@ -10,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#submit').disabled = true;
         }
     }
-    postTask ();                        
+    postTask ();         
     });   
             
 function editTask (){   
@@ -30,31 +33,57 @@ function editTask (){
 
 const formatedDate = function () {
     const now = new Date();
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
+    //const day = `${now.getDate()}`.padStart(2, 0);
+    //const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    //const year = now.getFullYear();
     const hour = `${now.getHours()}`.padStart(2, 0);
     const min = `${now.getMinutes()}`.padStart(2, 0);
-    return `${day}/${month}/${year} - ${hour}:${min}`;
+    return `${hour}:${min}`;
 };
 
-     
+const startTimer = function (nr, time) {
+    const labTimer = document.querySelector(`.timer-${nr}`);
+    const labelPost = document.querySelector(`.post-${nr}`);
+    const timeSnap = function () {
+      const min = String(Math.trunc(time / 60)).padStart(2, 0);
+      const sec = String(time % 60).padStart(2, 0);
+      labTimer.textContent = `${min}:${sec}`;
+      if (time === 0) {
+        clearInterval(timer);
+        labelPost.style.backgroundColor = "red";
+      }
+      time--;
+    };
+    timeSnap();
+    const timer = setInterval(timeSnap, 1000);
+    return timer;
+  };
+  
 function postTask (){
     document.querySelector('form').onsubmit = () => {
         taskNr++;
+        
+        if (time = document.querySelector('#taksTime').value) {
+            time;
+        } else {
+            var time = 300;
+        }
         const taskValue = document.querySelector('#task').value;
         const post = document.createElement('div');
-        post.className = `post post-${taskNr}`;
+        post.className = `post-${taskNr} post `;
         post.innerHTML = 
         `<div class="taskInput">${taskNr}. ${taskValue}</div>
         <div class="date">${formatedDate()}</div>
         <button class="edit">Edit</button>
         <button class="confirm">Confirm</button>
-        <button class="delete">Delete</button> `;     
+        <button class="delete">Delete</button>
+        <button class="timer timer-${taskNr}">5</button>`;     
         document.querySelector('#posts').append(post);                       
         document.querySelector('#task').value = '';
-        document.querySelector('#submit').disabled = true;                       
+        document.querySelector('#taksTime').value = '';
+        document.querySelector('#submit').disabled = true;                      
         // stop form from submitting
+        startTimer(taskNr, time); 
         return false
     }   
 }

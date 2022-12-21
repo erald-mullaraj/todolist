@@ -47,6 +47,12 @@ body {
     margin: 0 0 2rem;
     padding: 1px;
 }
+#taksTime{
+    font-size: 22px;
+    width: 8%;
+    margin: 0 0 2rem;
+    padding: 1px;
+}
 
 #submit{
     width: 7rem;
@@ -73,6 +79,7 @@ body {
     color: white;  
     font-size: 20px;
  }
+
 
  #posts{
     align-self: center;
@@ -103,6 +110,12 @@ body {
 .delete  {
     margin-right: 2px;
     margin-left: 2px;
+}
+
+.timer  {
+    margin-right: 2px;
+    margin-left: 2px;
+    background-color: #46737f;
 }
 
 .edit{
