@@ -51,17 +51,22 @@ const formatedDate = function () {
 // creates the logics for the timer button
 const startTimer = function (nr, time) {
     const labTimer = document.querySelector(`.timer-${nr}`);
-    const labTimer2 = document.querySelector('.timer');
     const labelPost = document.querySelector(`.post-${nr}`);
+    var timeSec = time*60;
     const timeSnap = function () {
-      const min = String(Math.trunc(time / 60)).padStart(2, 0);
-      const sec = String(time % 60).padStart(2, 0);
-      labTimer.textContent = `${min}:${sec}`;
-      if (time === 0) {
+      const hrs = String(Math.trunc(timeSec / 3600)).padStart(2, 0);
+      const min = String(Math.trunc(timeSec / 60) % 60).padStart(2, 0);
+      const sec = String(timeSec % 60).padStart(2, 0);
+      if (timeSec >= 3600) {
+        labTimer.textContent = `${hrs}:${min}:${sec}`;
+      }  else if (timeSec < 3600) {
+        labTimer.textContent = `${min}:${sec}`;
+      }
+      if (timeSec === 0) {
         clearInterval(timer);
         labelPost.style.backgroundColor = "red";
-      }
-      time--;
+      };
+      timeSec--;
     };
     timeSnap();
     // labTimer.addEventListener('click', function () {
@@ -86,7 +91,7 @@ function postTask (){
         // } else {
         //     var time = 300;
         // }
-         time =(time = document.querySelector('#taskTime').value) ? time : 600;
+        time =(time = document.querySelector('#taskTime').value) ? time : 30;
         const taskValue = document.querySelector('#task').value;
         const post = document.createElement('div');
         post.className = `post-${taskNr} post `;
