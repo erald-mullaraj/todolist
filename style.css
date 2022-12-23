@@ -33,24 +33,29 @@ body {
 
 .header{
     color: #fff;
-    margin: 2rem 3rem;
-    padding: 1px;
+    margin: 0px 2px 1rem 0rem;
+    padding: 2px;
     background: linear-gradient( #2d454c 0%, #395a63 85%, #46737f 100%);
-    border-radius: 10px;
     border: solid 4px;
     border-color: #26424a;
+    
+    opacity:95%;
+}
+
+h1{
+    margin: 5px;
 }
 
 #task{
     font-size: 22px;
     width: 50%;
-    margin: 0 0 2rem;
+    margin: 0.5rem 0 1rem;
     padding: 1px;
 }
-#taksTime{
+#taskTime{
     font-size: 22px;
     width: 8%;
-    margin: 0 0 2rem;
+    margin: 0 0 1rem;
     padding: 1px;
 }
 
@@ -75,16 +80,15 @@ body {
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
     animation-play-state: paused;  
-    border-radius: 15px;
+    border-radius: 40px;
     color: white;  
     font-size: 20px;
  }
 
-
  #posts{
     align-self: center;
     text-align: left;
-    margin: 0 5rem;
+    margin: 0 2rem;
 }
       
 .post:hover{   
