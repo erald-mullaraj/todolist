@@ -96,8 +96,8 @@ function postTask (){
         const post = document.createElement('div');
         post.className = `post-${taskNr} post `;
         post.innerHTML = 
-        `<div class="taskInput">${taskNr}. ${taskValue}</div>
-        <div class="date">${formatedDate()}</div>
+        `<div class="date">${formatedDate()}</div>
+        <div class="taskInput">${taskNr}. ${taskValue}</div>
         <button class="edit">Edit</button>
         <button class="confirm">Confirm</button>
         <button class="delete">Delete</button>
@@ -118,17 +118,16 @@ document.addEventListener('click', event => {
          if (element.className === 'delete') {
             element.parentElement.style.animationPlayState = 'running';
             element.parentElement.addEventListener('animationend', () =>  {
-                element.parentElement.remove();
+            element.parentElement.remove();
             });
         } else  if (element.className === 'edit'  ){ 
-                element.parentElement.contentEditable = true;
-                element.parentElement.style = 'background-color: #68a1b0;';              
+            document.querySelector('.taskInput').contentEditable = true;
+            //element.parentElement.contentEditable = true;
+            element.parentElement.style = 'background-color: #68a1b0;';              
         } else if (element.className === 'confirm') {
-                element.parentElement.contentEditable = false;
-                element.parentElement.style = ' ';
-        }      else if (element.className === 'timer') {
-            
+            element.parentElement.contentEditable = false;
+            element.parentElement.style = ' ';
+        } else if (element.className === 'timer') {
             startTimer(taskNr, time); 
         }   
-                
     });
