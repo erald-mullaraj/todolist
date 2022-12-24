@@ -69,9 +69,6 @@ const startTimer = function (nr, time) {
       timeSec--;
     };
     timeSnap();
-    // labTimer.addEventListener('click', function () {
-    //     alert(labTimer.textContent)
-    // })
     labTimer.addEventListener('click', function (e) {
         this.style.backgroundColor = randomColor();
         console.log(randomColor());
@@ -80,12 +77,30 @@ const startTimer = function (nr, time) {
     //labTimer.addEventListener('click', clearInterval(timer))
     return timer;
   };
-  
+
+const editPost = function (nr, elm) {
+    const tskInp = document.querySelector(`.taskInput-${nr}`); 
+    const editLabel = document.querySelector(`#editId-${nr}`); 
+    console.log(editLabel) 
+    if (editLabel.textContent === 'Edit'){
+        console.log(tskInp.contentEditable + '1 here')
+        tskInp.contentEditable = true;
+        //element.parentElement.contentEditable = true;
+        elm.parentElement.style = 'background-color: #68a1b0;'; 
+        editLabel.textContent = 'Confirm';
+        console.log(tskInp.contentEditable + '2 here')  
+        } else {
+            console.log(tskInp.contentEditable + '3 here')
+            editLabel.textContent = 'Edit';
+            tskInp.contentEditable = false;
+            elm.parentElement.style = ' ';
+            console.log(tskInp.contentEditable + '4 here')
+        }   
+}
   
 function postTask (){
     document.querySelector('form').onsubmit = () => {
         taskNr++;
-        
         // if (time = document.querySelector('#taskTime').value) {
         //     time;
         // } else {
@@ -97,9 +112,8 @@ function postTask (){
         post.className = `post-${taskNr} post `;
         post.innerHTML = 
         `<div class="date">${formatedDate()}</div>
-        <div class="taskInput">${taskNr}. ${taskValue}</div>
-        <button class="edit">Edit</button>
-        <button class="confirm">Confirm</button>
+        <div class="taskInput-${taskNr}">${taskNr}. ${taskValue}</div>
+        <button class="edit" id="editId-${taskNr}">Edit</button>
         <button class="delete">Delete</button>
         <button class="timer timer-${taskNr}">1:00</button>`;     
         document.querySelector('#posts').append(post);                       
@@ -114,19 +128,18 @@ function postTask (){
            
  // If hide button is clicked, delete the post
 document.addEventListener('click', event => {
-    const element = event.target;                        
+    const element = event.target;        
          if (element.className === 'delete') {
             element.parentElement.style.animationPlayState = 'running';
             element.parentElement.addEventListener('animationend', () =>  {
             element.parentElement.remove();
             });
         } else  if (element.className === 'edit'  ){ 
-            document.querySelector('.taskInput').contentEditable = true;
-            //element.parentElement.contentEditable = true;
-            element.parentElement.style = 'background-color: #68a1b0;';              
-        } else if (element.className === 'confirm') {
-            element.parentElement.contentEditable = false;
-            element.parentElement.style = ' ';
+            editPost(taskNr, element);
+        // } else if (element.className === 'confirm') {
+        //     console.log(tskInp.contentEditable)
+        //     tskInp.contentEditable = false;
+        //     element.parentElement.style = ' ';
         } else if (element.className === 'timer') {
             startTimer(taskNr, time); 
         }   
