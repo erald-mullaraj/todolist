@@ -35,9 +35,9 @@ body {
     color: #fff;
     margin: 0px 2px 1rem 0rem;
     padding: 2px;
-    background: linear-gradient(to top left,#46737f 0%, #080d0e 10%, #060c0e 85%, #46737f 100%);
+    background: linear-gradient(to top left,#46487f 0%, #08090e 10%, #06070e 85%, #46467f 100%);
     border: solid 4px;
-    border-color: #26424a;
+    border-color: #101024;
     opacity:95%;
 }
 
@@ -66,7 +66,7 @@ h1{
 
 .post{      
     display: flex;           
-    background-color: #0d1011;
+    background-color: #0d0e11;
     padding: 2px 2px 2px 2px;
     margin: 1px 1px 1px;
     animation-name: delete;
@@ -85,7 +85,7 @@ h1{
 }
       
 .post:hover{   
-    background-color: #46737f;
+    background-color: #3c4670;
 }
 
 .date{

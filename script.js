@@ -52,13 +52,25 @@ const startTimer = function (nr, time) {
       timeSec--;
     };
     timeSnap();
-    labTimer.addEventListener('click', function (e) {
+    labTimer.addEventListener('dblclick', function (e) {
         this.style.backgroundColor = randomColor();
-        console.log(randomColor());
-        console.log(this.sytle.backgroundColor);
+    })
+    var timer = null;
+    function start() {
+        timer = setInterval(timeSnap, 1000);
+    }
+    function stop() {
+        clearInterval(timer);
+    }
+    var state = 1;
+    labTimer.addEventListener('click', function (e) {
+        if (state%2 ===1) {
+           start();
+        } else {
+            stop();
+        };
+        state ++;
     });
-    const timer = setInterval(timeSnap, 1000);
-    return timer;
   };
 
 function postTask (){
@@ -95,7 +107,7 @@ document.addEventListener('click', event => {
         } else  if (element.className === 'edit'  ){ 
             if (element.textContent === 'Edit'){
                 element.previousElementSibling.contentEditable = true;
-                element.parentElement.style = 'background-color: #68a1b0;'; 
+                element.parentElement.style = 'background-color: #3c4670;'; 
                 element.textContent = 'Confirm'; 
             } else {
                 element.textContent = 'Edit';
