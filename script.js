@@ -54,7 +54,18 @@ const startTimer = function (nr, time) {
     timeSnap();
     labTimer.addEventListener('dblclick', function (e) {
         this.style.backgroundColor = randomColor();
-    })
+    });
+    labTimer.addEventListener('mouseover', function (e) {
+        this.style.opacity = '0.75';
+        // this.style.backgroundColor = '#a3b9bf';
+       
+    });
+    labTimer.addEventListener('mouseout', function (e) {
+        this.style.opacity = '1';
+    });
+    
+    
+
     var timer = null;
     function start() {
         timer = setInterval(timeSnap, 1000);
