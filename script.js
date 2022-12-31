@@ -109,7 +109,7 @@ function postTask (){
            
  // If hide button is clicked, delete the post
 document.addEventListener('click', event => {
-    const element = event.target;        
+    const element = event.target;       
          if (element.className === 'delete') {
             element.parentElement.style.animationPlayState = 'running';
             element.parentElement.addEventListener('animationend', () =>  {
@@ -129,3 +129,18 @@ document.addEventListener('click', event => {
             startTimer(taskNr, time); 
         };   
     });
+
+// sticky scoll
+const body = document.body;
+let scrollValue = 0; 
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > scrollValue) {
+        body.classList.add('scroll-down');
+    };
+    if (currentScroll < scrollValue) {
+        body.classList.remove('scroll-down');
+    };
+    scrollValue = currentScroll;
+});
+
