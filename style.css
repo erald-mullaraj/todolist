@@ -28,17 +28,18 @@ body {
     padding: 0px 1px 1px 0px;
     margin: 0px 1px 1px 0px;
     min-height: 1000px;
-    background: linear-gradient(90deg, #acb5b7,  #ffffff 20%, #ffffff 80%, #acb5b7);
+    background:  #ffffff;
 }
 
 .header{
     color: #fff;
-    margin: 0px 2px 1rem 0rem;
-    padding: 2px;
-    background: linear-gradient(to top left,#46487f 0%, #08090e 10%, #06070e 85%, #46467f 100%);
-    border: solid 2px;
+    margin: 0px 0px 1rem 0rem;
+    padding: 0px;
+    background: linear-gradient(to top,#636363 0%, #073048 10%, #011c2c 85%, #515156 100%);
+    border: solid 1px;
+    border-radius: 10px;
     border-color: #d0d0d2;
-    opacity:100%;
+    opacity: 1;
     position: fixed;
     left: 0;
     top: 0;
@@ -49,7 +50,7 @@ body {
 
 .scroll-down header{
     transform: translate3d(0, -100%, 0);
-}
+} 
 
 h1{
     margin: 5px;
@@ -72,13 +73,14 @@ h1{
 #submit{
     width: 7rem;
     color: #203339;
+    border-radius: 5px;
 }
 
 .post{      
     display: flex;           
-    background-color: #0d0e11;
+    background: linear-gradient(to top, #ffffff 0%, #011c2c 6%, #011c2c 94%, #ffffff 100%);
     padding: 2px 2px 2px 2px;
-    margin: 1px 1px 1px;
+    margin: 15px 1px 1px;
     animation-name: delete;
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
@@ -95,7 +97,7 @@ h1{
 }
       
 .post:hover{   
-    background-color: #3c4670;
+    background: #3592c0;
 }
 
 .date{
